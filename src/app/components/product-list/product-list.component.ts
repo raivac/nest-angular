@@ -22,7 +22,7 @@ export class ProductListComponent  implements OnInit {
     .subscribe(
     res => {
       console.log(res)
-      //this.products = res;
+      this.products = res;
     },
     err => console.log(err)
     );
