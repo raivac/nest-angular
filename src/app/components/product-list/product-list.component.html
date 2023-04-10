@@ -18,10 +18,10 @@
                 Puesto a la venta el: {{product.created}}
             </li>
         </ul>
-        <button class="btn btn-danger">
+        <button class="btn btn-danger" (click)="product._id && deleteProduct(product._id)">
             Eliminar
         </button> 
-        <button class="btn btn-secondary">
+        <button class="btn btn-secondary" [routerLink]="['/product/edit', product._id]">
             Editar
         </button>
     </div>

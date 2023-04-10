@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-4 offset-md-4">
     <div class="card card-baby">
-      <form (submit)="submitProduct()">
+      <form (submit)=" edit ? updateProduct() : submitProduct()">
         <div class="form-group">
           <input
             type="text"

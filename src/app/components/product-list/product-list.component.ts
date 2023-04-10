@@ -7,8 +7,7 @@ import { Product } from 'src/app/interfaces/Product';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
-export class ProductListComponent  implements OnInit {
-
+export class ProductListComponent implements OnInit {
   products: Product[] = [];
 
   constructor(private productService: ProductService) {}
@@ -18,13 +17,23 @@ export class ProductListComponent  implements OnInit {
   }
 
   getProducts() {
-    this.productService.getProducts()
-    .subscribe(
-    res => {
-      console.log(res)
-      this.products = res;
-    },
-    err => console.log(err)
+    this.productService.getProducts().subscribe(
+      (res) => {
+        console.log(res);
+        this.products = res;
+      },
+      (err) => console.log(err)
+    );
+  }
+
+  deleteProduct(id: string) {
+    this.productService.deleteProduct(id).subscribe(
+      (res) => {
+        this.getProducts();
+      },
+      (err) => {
+        console.log(err);
+      }
     );
   }
 }
